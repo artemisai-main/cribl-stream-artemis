@@ -13,8 +13,8 @@ outputs:
     stagePath: /tmp/cribl/artemis_s3_staging
     awsAuthenticationMethod: auto
     enableAssumeRole: true
-    assumeRoleArn: "`C.vars.artemis_iam_role_arn`"
-    assumeRoleExternalId: "`C.vars.artemis_external_id`"
+    assumeRoleArn: "arn:aws:iam::YOUR_ARTEMIS_AWS_ACCOUNT_ID:role/cribl-stream-YOUR_INTEGRATION_ID"
+    assumeRoleExternalId: "REPLACE_WITH_ARTEMIS_EXTERNAL_ID"
     durationSeconds: 3600
     signatureVersion: v4
     reuseConnections: true

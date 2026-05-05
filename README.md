@@ -31,7 +31,7 @@ When you provision the Cribl Stream connector inside Artemis, the portal generat
 ### 1. Install the Pack
 
 * Cribl Stream UI → **Packs** → **Add Pack** → upload the `.crbl` file (or install from the [Cribl Packs Dispensary](https://packs.cribl.io)).
-* Open the Pack and go to **Knowledge** → **Variables**. Paste each of the seven values above.
+* Open the Pack and go to **Knowledge** → **Variables**. Paste each of the values above into the matching variable.
 
 ### 2. Configure outbound (Stream → Artemis S3)
 
@@ -40,8 +40,14 @@ The S3 destination `out_artemis_s3` is preconfigured to:
 * `bucket = ${C.vars.artemis_s3_bucket}`
 * `region = ${C.vars.artemis_aws_region}`
 * `keyPrefix = ${C.vars.artemis_key_prefix}`
-* AssumeRole ARN + ExternalId from variables, `auth = auto` (uses the Worker's instance role, IRSA, or shared-credentials chain)
-* `format = ndjson`, `compress = gzip`, server-side encryption enabled, partitioned by `YYYY/MM/DD/HH`.
+* `format = json`, `compress = gzip`, server-side encryption enabled, partitioned by `YYYY/MM/DD/HH`.
+
+**Set AssumeRole ARN + ExternalId directly on the destination** (Cribl's destination schema rejects variable references on `assumeRoleArn`):
+
+* Open `out_artemis_s3` → AWS Authentication section.
+* `AssumeRole ARN`: paste the value of `artemis_iam_role_arn` (replaces the placeholder `arn:aws:iam::YOUR_ARTEMIS_AWS_ACCOUNT_ID:...`).
+* `External ID`: paste the value of `artemis_external_id` (replaces the placeholder `REPLACE_WITH_ARTEMIS_EXTERNAL_ID`).
+* Save and Commit & Deploy.
 
 The default Routes wire **Okta**, **CloudTrail**, and **Syslog** through their respective pipelines and out to `out_artemis_s3`. Adjust the route filters or add new routes for additional sourcetypes — Artemis accepts any sourcetype string, but only the ones listed in the Artemis portal will be auto-normalized.
 
