@@ -1,0 +1,42 @@
+description: "Hygiene pipeline for Syslog events on the way to Artemis S3."
+streamtags:
+  - artemis
+  - syslog
+asyncFuncTimeout: 1000
+groups: {}
+functions:
+  - id: comment
+    filter: "true"
+    conf:
+      comment: |-
+        Syslog -> Artemis S3 hygiene pipeline.
+        - Promotes RFC3164/RFC5424 structured fields to top-level if a Cribl
+          Syslog Source has not already done so.
+        - Stamps sourcetype=syslog. Artemis maps further into per-vendor
+          sourcetypes (cisco_asa, fortigate, etc.) downstream.
+        - This pipeline is intentionally minimal; vendor-specific parsing
+          should live in vendor-specific Packs (Palo Alto, FortiGate, Cisco
+          ASA, etc.).
+    description: "Pipeline header"
+
+  - id: eval
+    filter: "true"
+    conf:
+      add:
+        - name: sourcetype
+          value: "sourcetype || 'syslog'"
+        - name: __artemis_source
+          value: "'syslog'"
+      remove:
+        - cribl_breaker
+        - cribl_pipe
+    description: "Stamp sourcetype + strip Cribl-internal fields"
+
+  - id: eval
+    filter: "(_raw || '').toString().length === 0"
+    disabled: false
+    conf:
+      add: []
+      remove:
+        - "*"
+    description: "Drop empty syslog frames (heartbeats / partial reads)"

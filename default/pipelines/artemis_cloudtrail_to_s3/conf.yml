@@ -1,0 +1,48 @@
+description: "Hygiene pipeline for AWS CloudTrail events on the way to Artemis S3."
+streamtags:
+  - artemis
+  - aws
+  - cloudtrail
+asyncFuncTimeout: 1000
+groups: {}
+functions:
+  - id: comment
+    filter: "true"
+    conf:
+      comment: |-
+        CloudTrail -> Artemis S3 hygiene pipeline.
+        - Parses _raw JSON.
+        - Unrolls the standard {"Records":[...]} envelope so each API call is its own event (mirrors the cribl-aws-cloudtrail-logs Pack).
+        - Stamps sourcetype=aws_cloudtrail so Artemis routes to the CloudTrail normalizer.
+        - Removes verbose tokens that bloat events without adding signal.
+    description: "Pipeline header"
+
+  - id: eval
+    filter: "typeof _raw === 'string' && _raw.charAt(0) === '{'"
+    conf:
+      add:
+        - name: _raw
+          value: JSON.parse(_raw)
+    description: "Parse JSON _raw if it arrived as a string"
+
+  - id: unroll
+    filter: "_raw && Array.isArray(_raw.Records)"
+    conf:
+      srcExpr: _raw.Records
+      dstField: _raw
+    description: "Unroll Records[] into one event per CloudTrail API call"
+
+  - id: eval
+    filter: "true"
+    conf:
+      add:
+        - name: sourcetype
+          value: "'aws_cloudtrail'"
+        - name: __artemis_source
+          value: "'aws_cloudtrail'"
+      remove:
+        - cribl_breaker
+        - cribl_pipe
+        - "_raw.responseElements.credentials.sessionToken"
+        - "_raw.requestParameters.resultToken"
+    description: "Stamp sourcetype + strip session tokens (matches cribl-aws-cloudtrail-logs)"

@@ -1,0 +1,113 @@
+description: "Reads Artemis case NDJSON from the in_artemis_cases HTTP source and tags each event for downstream fanout. Wire the route output to a Worker Group destination of your choice (Slack webhook, ServiceNow Table API, Splunk HEC, Datadog, etc.)."
+streamtags:
+  - artemis
+  - artemis-cases
+asyncFuncTimeout: 1000
+groups:
+  grp_case_normalize:
+    name: Normalize Artemis case
+    description: "Parse + flatten the case envelope so downstream destinations get clean fields."
+    index: 1
+    disabled: false
+  grp_case_route_hint:
+    name: Set fanout hints
+    description: "Drop hints (severity_band, target_channel) that downstream Cribl Routes can filter on."
+    index: 2
+    disabled: false
+functions:
+  - id: comment
+    filter: "true"
+    conf:
+      comment: |-
+        Artemis case fanout pipeline.
+
+        Artemis posts one case per event as NDJSON over HTTP with a bearer
+        token. Expected fields (subset):
+          case_id, organization_id, severity, status, title, summary,
+          verdict, created_at_ms, updated_at_ms, detector_id, link
+
+        This pipeline does *not* ship preconfigured Slack/ServiceNow/Splunk/
+        Datadog destinations - those require credentials that must be entered
+        per customer in your own Worker Group. Instead it tags events with
+        `__artemis_target` so you can write Cribl Routes that fan out to the
+        destinations you already have configured. Reference filters:
+
+          __artemis_target == 'slack'      -> Webhook destination
+          __artemis_target == 'servicenow' -> Webhook destination
+          __artemis_target == 'splunk'     -> Splunk HEC destination
+          __artemis_target == 'datadog'    -> Datadog destination
+
+        See README "Configure Case Fanout" for examples.
+    description: "Pipeline header"
+
+  - id: eval
+    filter: "typeof _raw === 'string' && _raw.charAt(0) === '{'"
+    conf:
+      add:
+        - name: _raw
+          value: JSON.parse(_raw)
+    description: "Parse JSON case body"
+    groupId: grp_case_normalize
+
+  - id: eval
+    filter: "true"
+    conf:
+      add:
+        - name: case_id
+          value: _raw && _raw.case_id
+        - name: organization_id
+          value: _raw && _raw.organization_id
+        - name: severity
+          value: _raw && _raw.severity
+        - name: status
+          value: _raw && _raw.status
+        - name: title
+          value: _raw && _raw.title
+        - name: link
+          value: _raw && _raw.link
+        - name: detector_id
+          value: _raw && _raw.detector_id
+        - name: sourcetype
+          value: "'artemis_case'"
+    description: "Promote case fields to top-level"
+    groupId: grp_case_normalize
+
+  - id: eval
+    filter: "true"
+    conf:
+      add:
+        - name: severity_band
+          value: "(severity === 'critical' || severity === 'high') ? 'high' : (severity === 'medium' ? 'medium' : 'low')"
+    description: "Bucket severity into low/medium/high for routing"
+    groupId: grp_case_route_hint
+
+  - id: eval
+    filter: "severity_band === 'high'"
+    conf:
+      add:
+        - name: __artemis_target
+          value: "'slack,servicenow,splunk,datadog'"
+    description: "High-severity cases fan out everywhere"
+    groupId: grp_case_route_hint
+
+  - id: eval
+    filter: "severity_band === 'medium'"
+    conf:
+      add:
+        - name: __artemis_target
+          value: "'slack,splunk,datadog'"
+    description: "Medium-severity cases skip ServiceNow"
+    groupId: grp_case_route_hint
+
+  - id: eval
+    filter: "severity_band === 'low'"
+    conf:
+      add:
+        - name: __artemis_target
+          value: "'splunk,datadog'"
+    description: "Low-severity cases archive only"
+    groupId: grp_case_route_hint
+
+  - id: drop
+    filter: "!case_id"
+    description: "Defensive: drop events that don't look like a case (no case_id)"

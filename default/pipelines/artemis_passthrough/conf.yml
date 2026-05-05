@@ -1,0 +1,15 @@
+description: "No-op pipeline used by the disabled artemis_passthrough route while the Pack is being configured."
+streamtags:
+  - artemis
+asyncFuncTimeout: 1000
+groups: {}
+functions:
+  - id: comment
+    filter: "true"
+    conf:
+      comment: |-
+        Passthrough pipeline. Wired to a devnull destination so events that
+        slip past the named routes during initial Pack import do not back
+        up the queue. Disable the artemis_passthrough route once the named
+        routes are live in your environment.
+    description: "Pipeline header"

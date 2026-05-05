@@ -1,0 +1,43 @@
+description: "Hygiene pipeline for Okta System Log events on the way to Artemis S3."
+streamtags:
+  - artemis
+  - okta
+asyncFuncTimeout: 1000
+groups: {}
+functions:
+  - id: comment
+    filter: "true"
+    conf:
+      comment: |-
+        Okta -> Artemis S3 hygiene pipeline.
+        - Parses _raw JSON if upstream did not.
+        - Stamps sourcetype=okta so Artemis routes to the okta_system_log normalizer.
+        - Drops Cribl-internal breaker fields that pollute downstream analytics.
+        Keep this pipeline as small as possible: Artemis normalizes the raw event itself.
+    description: "Pipeline header"
+
+  - id: eval
+    filter: "typeof _raw === 'string' && _raw.charAt(0) === '{'"
+    conf:
+      add:
+        - name: _raw
+          value: JSON.parse(_raw)
+    description: "Parse JSON _raw if it arrived as a string"
+
+  - id: eval
+    filter: "true"
+    conf:
+      add:
+        - name: sourcetype
+          value: "'okta'"
+        - name: __artemis_source
+          value: "'okta'"
+      remove:
+        - cribl_breaker
+        - cribl_pipe
+    description: "Stamp sourcetype + strip Cribl-internal fields"
+
+  - id: drop
+    filter: "_raw && _raw.eventType && /system\\.(internal|api_token\\.viewed)/.test(_raw.eventType)"
+    description: "Drop very low-value Okta system noise (optional, disabled by default)"
+    disabled: true

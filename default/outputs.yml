@@ -1,0 +1,43 @@
+outputs:
+  out_artemis_s3:
+    type: s3
+    description: "Artemis-managed S3 bucket. Cross-account AssumeRole + ExternalID. Configured by replacing pack variables with values supplied by Artemis at integration setup."
+    streamtags:
+      - artemis
+      - artemis-ingest
+    systemFields:
+      - cribl_pipe
+    bucket: "`C.vars.artemis_s3_bucket`"
+    region: "`C.vars.artemis_aws_region`"
+    keyPrefix: "`C.vars.artemis_key_prefix`"
+    stagePath: /tmp/cribl/artemis_s3_staging
+    awsAuthenticationMethod: auto
+    enableAssumeRole: true
+    assumeRoleArn: "arn:aws:iam::000000000000:role/REPLACE_WITH_VARS_artemis_iam_role_arn"
+    assumeRoleExternalId: "REPLACE_WITH_VARS_artemis_external_id"
+    durationSeconds: 3600
+    signatureVersion: v4
+    reuseConnections: true
+    rejectUnauthorized: true
+    storageClass: STANDARD
+    serverSideEncryption: AES256
+    format: json
+    compress: gzip
+    maxFileSizeMB: 32
+    maxFileOpenTimeSec: 300
+    maxFileIdleTimeSec: 30
+    maxConcurrentFileParts: 4
+    onBackpressure: block
+    addIdToStagingPath: true
+    deadletterEnabled: false
+    objectACL: private
+    emptyDirCleanupSec: 300
+    baseFileName: "`'artemis-' + C.Time.strftime(_time, '%Y%m%dT%H%M%S') + '-' + Math.floor(Math.random()*1e9).toString(36)`"
+    extension: gz
+    partitionExpr: "`C.Time.strftime(_time, '%Y/%m/%d/%H')`"
+
+  out_artemis_devnull:
+    type: devnull
+    description: "Drop sink used by the passthrough route during Pack import; flip routes to out_artemis_s3 once variables are filled in."
+    streamtags:
+      - artemis

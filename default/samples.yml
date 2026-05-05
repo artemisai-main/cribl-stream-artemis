@@ -1,0 +1,20 @@
+artemis_okta_sample:
+  sampleName: artemis_okta_sample
+  description: "20 synthetic Okta System Log events. No PII."
+  ttl: 0
+  numEvents: 20
+artemis_cloudtrail_sample:
+  sampleName: artemis_cloudtrail_sample
+  description: "20 synthetic AWS CloudTrail events (Records-wrapped). No PII."
+  ttl: 0
+  numEvents: 20
+artemis_syslog_sample:
+  sampleName: artemis_syslog_sample
+  description: "25 synthetic RFC5424 syslog frames. No PII."
+  ttl: 0
+  numEvents: 25
+artemis_case_sample:
+  sampleName: artemis_case_sample
+  description: "20 synthetic Artemis case NDJSON events. No PII."
+  ttl: 0
+  numEvents: 20

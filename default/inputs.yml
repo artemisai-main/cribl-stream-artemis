@@ -1,0 +1,36 @@
+inputs:
+  in_artemis_cases:
+    type: cribl_http
+    disabled: false
+    description: "Receives Artemis case NDJSON. Artemis posts one event per HTTP request as NDJSON; bearer token authenticates the call. Pair with the artemis_case_fanout pipeline to route into your existing SOC outputs (Slack, ServiceNow, Splunk, Datadog, etc)."
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags:
+      - artemis
+      - artemis-cases
+    host: 0.0.0.0
+    port: 10081
+    tls:
+      disabled: true
+      rejectUnauthorized: true
+    authType: token
+    tokens:
+      - token: "`C.vars.artemis_case_webhook_token`"
+        description: "Artemis case webhook bearer token"
+    captureHeaders: false
+    requestTimeout: 30
+    keepAliveTimeout: 5
+    maxRequestsPerSocket: 0
+    maxActiveCxn: 1000
+    socketTimeout: 0
+    activityTimeout: 600
+    enableHealthCheck: true
+    healthCheckPath: /health
+    metadata:
+      - name: __packsource
+        value: "'cc-stream-artemis-security.cases'"
+      - name: source
+        value: "'artemis_cases'"
+      - name: sourcetype
+        value: "'artemis_case'"
+    pipeline: artemis_case_fanout

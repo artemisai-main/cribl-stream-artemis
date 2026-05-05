@@ -1,0 +1,58 @@
+id: default
+groups: {}
+comments: []
+routes:
+  - id: rt_okta_artemis
+    name: artemis_okta_to_s3
+    final: true
+    disabled: false
+    description: "Okta System Log events -> Artemis S3 (sourcetype=okta)."
+    pipeline: artemis_okta_to_s3
+    output: out_artemis_s3
+    enableOutputExpression: false
+    filter: "(sourcetype || '').toString().toLowerCase().startsWith('okta') || /eventType/.test(_raw || '')"
+    clones: []
+
+  - id: rt_cloudtrail_artemis
+    name: artemis_cloudtrail_to_s3
+    final: true
+    disabled: false
+    description: "AWS CloudTrail events -> Artemis S3 (sourcetype=aws_cloudtrail)."
+    pipeline: artemis_cloudtrail_to_s3
+    output: out_artemis_s3
+    enableOutputExpression: false
+    filter: "(sourcetype || '').toString().toLowerCase().includes('cloudtrail') || /\"eventVersion\"\\s*:/.test(_raw || '')"
+    clones: []
+
+  - id: rt_syslog_artemis
+    name: artemis_syslog_to_s3
+    final: true
+    disabled: false
+    description: "Syslog (RFC3164/RFC5424) events -> Artemis S3 (sourcetype=syslog)."
+    pipeline: artemis_syslog_to_s3
+    output: out_artemis_s3
+    enableOutputExpression: false
+    filter: "(__inputId || '').toString().includes('syslog') || (sourcetype || '').toString().toLowerCase() === 'syslog'"
+    clones: []
+
+  - id: rt_artemis_cases
+    name: artemis_case_fanout
+    final: true
+    disabled: false
+    description: "Artemis cases inbound on the in_artemis_cases HTTP source -> fanout pipeline. Configure your own Worker Group destinations and remap the route output (Slack, ServiceNow, Splunk, Datadog) once installed."
+    pipeline: artemis_case_fanout
+    output: out_artemis_devnull
+    enableOutputExpression: false
+    filter: "__packsource == 'cc-stream-artemis-security.cases'"
+    clones: []
+
+  - id: rt_passthrough
+    name: artemis_passthrough
+    final: true
+    disabled: true
+    description: "Catch-all that drops to devnull while the Pack is being configured. Disabled by default - enable while testing if you want to swallow everything that doesn't match the routes above."
+    pipeline: artemis_passthrough
+    output: out_artemis_devnull
+    enableOutputExpression: false
+    filter: "true"
+    clones: []
