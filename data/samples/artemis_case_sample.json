@@ -1,20 +1,82 @@
-{"_raw": "{\"case_id\": \"case_00000000\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"investigating\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764556800000, \"updated_at_ms\": 1764556801000, \"detector_id\": \"det_2389\", \"link\": \"https://app.goartemis.ai/cases/case_00000000\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000001\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"investigating\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764556860000, \"updated_at_ms\": 1764556861000, \"detector_id\": \"det_3924\", \"link\": \"https://app.goartemis.ai/cases/case_00000001\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000002\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"closed\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764556920000, \"updated_at_ms\": 1764556921000, \"detector_id\": \"det_7485\", \"link\": \"https://app.goartemis.ai/cases/case_00000002\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000003\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"investigating\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764556980000, \"updated_at_ms\": 1764556981000, \"detector_id\": \"det_3602\", \"link\": \"https://app.goartemis.ai/cases/case_00000003\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000004\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557040000, \"updated_at_ms\": 1764557041000, \"detector_id\": \"det_8624\", \"link\": \"https://app.goartemis.ai/cases/case_00000004\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000005\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Privilege escalation attempt\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557100000, \"updated_at_ms\": 1764557101000, \"detector_id\": \"det_6741\", \"link\": \"https://app.goartemis.ai/cases/case_00000005\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000006\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557160000, \"updated_at_ms\": 1764557161000, \"detector_id\": \"det_1233\", \"link\": \"https://app.goartemis.ai/cases/case_00000006\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000007\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"closed\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557220000, \"updated_at_ms\": 1764557221000, \"detector_id\": \"det_4191\", \"link\": \"https://app.goartemis.ai/cases/case_00000007\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000008\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"open\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557280000, \"updated_at_ms\": 1764557281000, \"detector_id\": \"det_5799\", \"link\": \"https://app.goartemis.ai/cases/case_00000008\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000009\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557340000, \"updated_at_ms\": 1764557341000, \"detector_id\": \"det_9918\", \"link\": \"https://app.goartemis.ai/cases/case_00000009\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000010\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557400000, \"updated_at_ms\": 1764557401000, \"detector_id\": \"det_6796\", \"link\": \"https://app.goartemis.ai/cases/case_00000010\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000011\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"closed\", \"title\": \"Privilege escalation attempt\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557460000, \"updated_at_ms\": 1764557461000, \"detector_id\": \"det_3142\", \"link\": \"https://app.goartemis.ai/cases/case_00000011\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000012\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557520000, \"updated_at_ms\": 1764557521000, \"detector_id\": \"det_4000\", \"link\": \"https://app.goartemis.ai/cases/case_00000012\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000013\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"open\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557580000, \"updated_at_ms\": 1764557581000, \"detector_id\": \"det_8757\", \"link\": \"https://app.goartemis.ai/cases/case_00000013\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000014\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"closed\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557640000, \"updated_at_ms\": 1764557641000, \"detector_id\": \"det_9492\", \"link\": \"https://app.goartemis.ai/cases/case_00000014\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000015\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557700000, \"updated_at_ms\": 1764557701000, \"detector_id\": \"det_4134\", \"link\": \"https://app.goartemis.ai/cases/case_00000015\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000016\", \"organization_id\": \"exampleorg\", \"severity\": \"high\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557760000, \"updated_at_ms\": 1764557761000, \"detector_id\": \"det_8408\", \"link\": \"https://app.goartemis.ai/cases/case_00000016\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000017\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"open\", \"title\": \"Privilege escalation attempt\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557820000, \"updated_at_ms\": 1764557821000, \"detector_id\": \"det_9282\", \"link\": \"https://app.goartemis.ai/cases/case_00000017\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000018\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557880000, \"updated_at_ms\": 1764557881000, \"detector_id\": \"det_9325\", \"link\": \"https://app.goartemis.ai/cases/case_00000018\"}", "_time": 1764556820}
-{"_raw": "{\"case_id\": \"case_00000019\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"closed\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557940000, \"updated_at_ms\": 1764557941000, \"detector_id\": \"det_9572\", \"link\": \"https://app.goartemis.ai/cases/case_00000019\"}", "_time": 1764556820}
+[
+  {
+    "_raw": "{\"case_id\": \"case_00000000\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"investigating\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764556800000, \"updated_at_ms\": 1764556801000, \"detector_id\": \"det_2389\", \"link\": \"https://app.goartemis.ai/cases/case_00000000\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000001\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"investigating\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764556860000, \"updated_at_ms\": 1764556861000, \"detector_id\": \"det_3924\", \"link\": \"https://app.goartemis.ai/cases/case_00000001\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000002\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"closed\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764556920000, \"updated_at_ms\": 1764556921000, \"detector_id\": \"det_7485\", \"link\": \"https://app.goartemis.ai/cases/case_00000002\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000003\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"investigating\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764556980000, \"updated_at_ms\": 1764556981000, \"detector_id\": \"det_3602\", \"link\": \"https://app.goartemis.ai/cases/case_00000003\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000004\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557040000, \"updated_at_ms\": 1764557041000, \"detector_id\": \"det_8624\", \"link\": \"https://app.goartemis.ai/cases/case_00000004\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000005\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Privilege escalation attempt\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557100000, \"updated_at_ms\": 1764557101000, \"detector_id\": \"det_6741\", \"link\": \"https://app.goartemis.ai/cases/case_00000005\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000006\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557160000, \"updated_at_ms\": 1764557161000, \"detector_id\": \"det_1233\", \"link\": \"https://app.goartemis.ai/cases/case_00000006\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000007\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"closed\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557220000, \"updated_at_ms\": 1764557221000, \"detector_id\": \"det_4191\", \"link\": \"https://app.goartemis.ai/cases/case_00000007\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000008\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"open\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557280000, \"updated_at_ms\": 1764557281000, \"detector_id\": \"det_5799\", \"link\": \"https://app.goartemis.ai/cases/case_00000008\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000009\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557340000, \"updated_at_ms\": 1764557341000, \"detector_id\": \"det_9918\", \"link\": \"https://app.goartemis.ai/cases/case_00000009\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000010\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557400000, \"updated_at_ms\": 1764557401000, \"detector_id\": \"det_6796\", \"link\": \"https://app.goartemis.ai/cases/case_00000010\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000011\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"closed\", \"title\": \"Privilege escalation attempt\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557460000, \"updated_at_ms\": 1764557461000, \"detector_id\": \"det_3142\", \"link\": \"https://app.goartemis.ai/cases/case_00000011\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000012\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557520000, \"updated_at_ms\": 1764557521000, \"detector_id\": \"det_4000\", \"link\": \"https://app.goartemis.ai/cases/case_00000012\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000013\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"open\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557580000, \"updated_at_ms\": 1764557581000, \"detector_id\": \"det_8757\", \"link\": \"https://app.goartemis.ai/cases/case_00000013\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000014\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"closed\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557640000, \"updated_at_ms\": 1764557641000, \"detector_id\": \"det_9492\", \"link\": \"https://app.goartemis.ai/cases/case_00000014\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000015\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"true_positive\", \"created_at_ms\": 1764557700000, \"updated_at_ms\": 1764557701000, \"detector_id\": \"det_4134\", \"link\": \"https://app.goartemis.ai/cases/case_00000015\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000016\", \"organization_id\": \"exampleorg\", \"severity\": \"high\", \"status\": \"open\", \"title\": \"Suspicious AWS AssumeRole from new IP\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557760000, \"updated_at_ms\": 1764557761000, \"detector_id\": \"det_8408\", \"link\": \"https://app.goartemis.ai/cases/case_00000016\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000017\", \"organization_id\": \"exampleorg\", \"severity\": \"low\", \"status\": \"open\", \"title\": \"Privilege escalation attempt\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557820000, \"updated_at_ms\": 1764557821000, \"detector_id\": \"det_9282\", \"link\": \"https://app.goartemis.ai/cases/case_00000017\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000018\", \"organization_id\": \"exampleorg\", \"severity\": \"medium\", \"status\": \"closed\", \"title\": \"Disabled GuardDuty detector\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"needs_review\", \"created_at_ms\": 1764557880000, \"updated_at_ms\": 1764557881000, \"detector_id\": \"det_9325\", \"link\": \"https://app.goartemis.ai/cases/case_00000018\"}",
+    "_time": 1764556820
+  },
+  {
+    "_raw": "{\"case_id\": \"case_00000019\", \"organization_id\": \"exampleorg\", \"severity\": \"critical\", \"status\": \"closed\", \"title\": \"Multiple Okta MFA failures\", \"summary\": \"Synthetic Artemis case for Cribl Pack sample data.\", \"verdict\": \"false_positive\", \"created_at_ms\": 1764557940000, \"updated_at_ms\": 1764557941000, \"detector_id\": \"det_9572\", \"link\": \"https://app.goartemis.ai/cases/case_00000019\"}",
+    "_time": 1764556820
+  }
+]
