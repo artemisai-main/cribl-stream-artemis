@@ -7,9 +7,9 @@ outputs:
       - artemis-ingest
     systemFields:
       - cribl_pipe
-    bucket: "`C.vars.artemis_s3_bucket`"
-    region: "`C.vars.artemis_aws_region`"
-    keyPrefix: "`C.vars.artemis_key_prefix`"
+    bucket: "REPLACE_WITH_ARTEMIS_S3_BUCKET"
+    region: "us-east-1"
+    keyPrefix: "REPLACE_WITH_ARTEMIS_KEY_PREFIX"
     stagePath: /tmp/cribl/artemis_s3_staging
     awsAuthenticationMethod: auto
     enableAssumeRole: true

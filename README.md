@@ -35,19 +35,19 @@ When you provision the Cribl Stream connector inside Artemis, the portal generat
 
 ### 2. Configure outbound (Stream → Artemis S3)
 
-The S3 destination `out_artemis_s3` is preconfigured to:
+The S3 destination `out_artemis_s3` ships with literal placeholder strings that the customer overwrites with the values Artemis supplied. Cribl's S3 destination schema does not evaluate `C.vars.*` expressions in the `bucket`, `region`, `keyPrefix`, `assumeRoleArn`, or `externalId` fields at runtime — they must be set as literal strings on the destination panel itself. The `default/vars.yml` entries are kept for documentation and reference; they do not drive the destination.
 
-* `bucket = ${C.vars.artemis_s3_bucket}`
-* `region = ${C.vars.artemis_aws_region}`
-* `keyPrefix = ${C.vars.artemis_key_prefix}`
-* `format = json`, `compress = gzip`, server-side encryption enabled, partitioned by `YYYY/MM/DD/HH`.
+Open `out_artemis_s3` and replace each placeholder:
 
-**Set AssumeRole ARN + ExternalId directly on the destination** (Cribl's destination schema rejects variable references on `assumeRoleArn`):
+* `Bucket`: paste `artemis_s3_bucket` (replaces `REPLACE_WITH_ARTEMIS_S3_BUCKET`).
+* `Region`: leave at `us-east-1` unless Artemis instructed otherwise.
+* `Key Prefix`: paste `artemis_key_prefix` (replaces `REPLACE_WITH_ARTEMIS_KEY_PREFIX`).
+* `AssumeRole ARN`: paste `artemis_iam_role_arn` (replaces `arn:aws:iam::YOUR_ARTEMIS_AWS_ACCOUNT_ID:role/...`).
+* `External ID`: paste `artemis_external_id` (replaces `REPLACE_WITH_ARTEMIS_EXTERNAL_ID`).
 
-* Open `out_artemis_s3` → AWS Authentication section.
-* `AssumeRole ARN`: paste the value of `artemis_iam_role_arn` (replaces the placeholder `arn:aws:iam::YOUR_ARTEMIS_AWS_ACCOUNT_ID:...`).
-* `External ID`: paste the value of `artemis_external_id` (replaces the placeholder `REPLACE_WITH_ARTEMIS_EXTERNAL_ID`).
-* Save and Commit & Deploy.
+Other settings already preconfigured: `format = json`, `compress = gzip`, server-side encryption enabled (`AES256`), partitioned by `YYYY/MM/DD/HH`.
+
+Save and **Commit & Deploy**.
 
 The default Routes wire **Okta**, **CloudTrail**, and **Syslog** through their respective pipelines and out to `out_artemis_s3`. Adjust the route filters or add new routes for additional sourcetypes — Artemis accepts any sourcetype string, but only the ones listed in the Artemis portal will be auto-normalized.
 
