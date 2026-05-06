@@ -5,5 +5,11 @@
   "author": "Artemis Security, Inc.",
   "description": "Send security telemetry from Cribl Stream to the Artemis AI-Native SIEM, and fan out Artemis cases back into your SOC workflow tools.",
   "displayName": "Artemis AI-Native SIEM",
-  "tags": ["artemis", "siem", "security", "aws", "okta", "cloudtrail", "syslog", "routing", "enrichment"]
+  "tags": {
+    "streamtags": [],
+    "dataType": ["logs"],
+    "useCase": ["routing", "reduction", "enrichment"],
+    "technology": ["aws", "okta", "cloudtrail", "syslog"],
+    "vendor": ["artemis"]
+  }
 }
